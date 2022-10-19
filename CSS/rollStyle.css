@@ -1,0 +1,17 @@
+.roll-main,
+.roll-game-container {
+  display: flex;
+  justify-content: center;
+}
+
+.roll-main {
+  width: 100%;
+}
+
+.roll-game-container {
+  width: 80rem;
+}
+
+h2 {
+  font-size: 10rem;
+}
