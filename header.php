@@ -9,5 +9,5 @@
     </nav>
 </header>
 <div class="title">
-    <h1>Zero Roll</h1>
+    <h1>Death Roll</h1>
 </div>
