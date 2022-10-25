@@ -20,18 +20,15 @@
 
 .main-roll-display {
   flex-direction: column;
-  justify-content: center;
-  height: 25rem;
+  text-align: center;
+  height: 60vh;
   border: 2px black solid;
-  border-radius: 100%;
   align-items: center;
   box-shadow: 0 10px 10px 0 black;
 }
 
-.main-roll-text {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 5rem;
+.main-roll-display-top {
+  height: 30vh;
 }
 
 .player-roll-display {

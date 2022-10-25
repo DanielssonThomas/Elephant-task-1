@@ -35,3 +35,12 @@ nav {
 h1 {
   letter-spacing: 0.6rem;
 }
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li:nth-child(odd) {
+  color: red;
+}

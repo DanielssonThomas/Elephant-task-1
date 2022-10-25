@@ -1,18 +1,41 @@
 <?php
 
+// $rollValue = 1000000;
+// $previousValues = [1, 5];
 
-$rollValue = 1000000;
+// if (isset($_GET['rollCall'])) {
+//     rollCall($rollValue, $previousValues);
+// }
 
-if (isset($_GET['rollCall'])) {
-    rollCall();
+// function rollCall(&$rollValue, &$previousValues)
+// {
+//     $rollValue = rand(1, $rollValue);
+//     $previousValues += $rollValue;
+//     echo $rollValue;
+// }
+
+
+$arrayOfRolls = array();
+
+if (isset($_GET['rollGame-btn'])) {
+    rollGame();
 }
 
-function rollCall()
+function rollGame()
 {
-    $rollValue = 1000000;
-    $rollResult = rand(1, $rollValue);
-    echo $rollResult;
+    global $arrayOfRolls;
+    $numberOfRolls = 0;
+    $Value = 1000000;
+
+    while ($Value != 1) {
+        $Value = rand(1, $Value);
+
+        $arrayOfRolls[$numberOfRolls] = $Value;
+
+        $numberOfRolls++;
+    }
 }
+
 
 ?>
 
@@ -37,12 +60,28 @@ function rollCall()
 
         <!-- main center roll side -->
         <div class="main-roll-display">
-            <p class="main-roll-text">
-                <?php rollCall() ?>
-            <form action="index.php" method="GET">
-                <p class="main-roll-text" type="text" name="rollCall"></p>
-                <button>ROLL</button>
+            <div class="main-roll-display-top">
+                <ul>
+                    <?php foreach ($arrayOfRolls as $rolls) : ?>
+                        <li>
+                            <?= $rolls ?>
+                        </li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+
+            <form method="GET">
+                <button name="rollGame-btn">Run Game</button>
             </form>
+            <p>
+                <?php
+                if (is_float(count($arrayOfRolls) / 2)) {
+                    echo "Opponent wins...";
+                } else {
+                    echo "Player WINNS!";
+                }
+
+                ?>
             </p>
         </div>
 
