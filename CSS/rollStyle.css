@@ -42,3 +42,8 @@
 .player-name {
   font-size: 3rem;
 }
+
+.roll-amount-header {
+  width: 100%;
+  text-align: center;
+}

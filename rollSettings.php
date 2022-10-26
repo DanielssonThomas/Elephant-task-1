@@ -9,15 +9,20 @@
     <link rel="stylesheet" href="./CSS/typography.css">
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/rollSettings.css">
-    <title>Document</title>
+    <title>Settings</title>
 </head>
 
 <body>
     <?php
     require('header.php');
-    require('main-roll.php');
-    require('footer.php');
     ?>
+
+    <main>
+        <section>
+
+        </section>
+    </main>
+
 </body>
 
 </html>

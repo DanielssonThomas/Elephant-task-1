@@ -1,21 +1,11 @@
 <?php
 
-// $rollValue = 1000000;
-// $previousValues = [1, 5];
-
-// if (isset($_GET['rollCall'])) {
-//     rollCall($rollValue, $previousValues);
-// }
-
-// function rollCall(&$rollValue, &$previousValues)
-// {
-//     $rollValue = rand(1, $rollValue);
-//     $previousValues += $rollValue;
-//     echo $rollValue;
-// }
-
-
 $arrayOfRolls = array();
+$playerRolls = array();
+$opponentRolls = array();
+
+$currentPlayerRoll = 0;
+$currentOpponentRoll = 0;
 
 if (isset($_GET['rollGame-btn'])) {
     rollGame();
@@ -23,23 +13,33 @@ if (isset($_GET['rollGame-btn'])) {
 
 function rollGame()
 {
-    global $arrayOfRolls;
-    $numberOfRolls = 0;
+    global $arrayOfRolls, $playerRolls, $opponentRolls, $currentPlayerRoll, $currentOpponentRoll;
+
     $Value = 1000000;
+
+    $isRollerPlayer = true;
 
     while ($Value != 1) {
         $Value = rand(1, $Value);
 
-        $arrayOfRolls[$numberOfRolls] = $Value;
-
-        $numberOfRolls++;
+        if ($isRollerPlayer) {
+            array_push($playerRolls, $Value);
+            $isRollerPlayer = false;
+        } else {
+            array_push($opponentRolls, $Value);
+            $isRollerPlayer = true;
+        }
+        array_push($arrayOfRolls, $Value);
     }
 }
 
 
 ?>
-
+<div class="roll-amount-header">
+    <h2>Rolling from 1000000</h2>
+</div>
 <main class="roll-main">
+
     <section class="game-container">
 
         <!-- player display side -->
@@ -52,27 +52,32 @@ function rollGame()
                 last roll
             </p>
             <ul>
-                <li class="player-last-roll">
-
-                </li>
+                <?php foreach ($playerRolls as $playerRoll) : ?>
+                    <li class="player-last-roll">
+                        <?= $playerRoll ?>
+                    </li>
+                <?php endforeach ?>
             </ul>
         </div>
 
         <!-- main center roll side -->
         <div class="main-roll-display">
             <div class="main-roll-display-top">
-                <ul>
+                <ol>
                     <?php foreach ($arrayOfRolls as $rolls) : ?>
                         <li>
                             <?= $rolls ?>
                         </li>
                     <?php endforeach ?>
-                </ul>
+                </ol>
             </div>
 
             <form method="GET">
                 <button name="rollGame-btn">Run Game</button>
             </form>
+            <button>
+                <a href="rollSettings.php">Change roll?</a>
+            </button>
             <p>
                 <?php
                 if (is_float(count($arrayOfRolls) / 2)) {
@@ -80,7 +85,6 @@ function rollGame()
                 } else {
                     echo "Player WINNS!";
                 }
-
                 ?>
             </p>
         </div>
@@ -95,9 +99,11 @@ function rollGame()
                 last roll
             </p>
             <ul>
-                <li class="player-last-roll">
-
-                </li>
+                <?php foreach ($opponentRolls as $opponentRoll) : ?>
+                    <li class="player-last-roll">
+                        <?= $opponentRoll ?>
+                    </li>
+                <?php endforeach ?>
             </ul>
         </div>
 

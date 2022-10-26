@@ -5,7 +5,7 @@
         <circle cx="28.5" cy="28.5" r="28" stroke="#000" />
     </svg>
     <nav>
-        <p></p>
+        <p><a href="about.php">What is this?</a></p>
     </nav>
 </header>
 <div class="title">
