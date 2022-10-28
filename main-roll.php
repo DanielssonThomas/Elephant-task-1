@@ -1,7 +1,12 @@
 <?php
 
+$error = "";
+
 $rollValue = 1000000;
 if (isset($_POST['newValue'])) {
+    if (!filter_var($_POST['newValue'], FILTER_VALIDATE_INT)) {
+        $error = "Thats an invalid number, try again";
+    }
     $rollValue = $_POST['newValue'];
 }
 
@@ -77,6 +82,7 @@ function rollGame()
             </div>
 
             <form method="POST">
+                <p><?= $error ?></p>
                 <label for="newValue">Enter new roll value, and roll from it: </label>
                 <input type="text" name="newValue">
                 <button type="submit">
