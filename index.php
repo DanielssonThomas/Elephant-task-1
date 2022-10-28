@@ -1,3 +1,8 @@
+<?php
+session_start();
+$_SESSION['rollValue'] = 1000000;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +13,6 @@
     <link rel="stylesheet" href="./CSS/rollStyle.css">
     <link rel="stylesheet" href="./CSS/typography.css">
     <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="stylesheet" href="./CSS/rollSettings.css">
     <title>Document</title>
 </head>
 

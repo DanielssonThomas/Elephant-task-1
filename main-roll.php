@@ -1,42 +1,46 @@
 <?php
 
+$rollValue = 1000000;
+if (isset($_POST['newValue'])) {
+    $rollValue = $_POST['newValue'];
+}
+
+// arrays för att spara vad som kommer ut ur rollsen
 $arrayOfRolls = array();
 $playerRolls = array();
 $opponentRolls = array();
 
-$currentPlayerRoll = 0;
-$currentOpponentRoll = 0;
-
+// kör roll funktionen när knappen blir klickad
 if (isset($_GET['rollGame-btn'])) {
     rollGame();
 }
 
+
+
 function rollGame()
 {
-    global $arrayOfRolls, $playerRolls, $opponentRolls, $currentPlayerRoll, $currentOpponentRoll;
-
-    $Value = 1000000;
+    global $arrayOfRolls, $playerRolls, $opponentRolls, $rollValue;
 
     $isRollerPlayer = true;
 
-    while ($Value != 1) {
-        $Value = rand(1, $Value);
+    while ($rollValue != 1) {
+        $rollValue = rand(1, $rollValue);
 
         if ($isRollerPlayer) {
-            array_push($playerRolls, $Value);
+            array_push($playerRolls, $rollValue);
             $isRollerPlayer = false;
         } else {
-            array_push($opponentRolls, $Value);
+            array_push($opponentRolls, $rollValue);
             $isRollerPlayer = true;
         }
-        array_push($arrayOfRolls, $Value);
+        array_push($arrayOfRolls, $rollValue);
     }
 }
 
 
 ?>
 <div class="roll-amount-header">
-    <h2>Rolling from 1000000</h2>
+    <h2>Default roll value = 1000000</h2>
 </div>
 <main class="roll-main">
 
@@ -45,7 +49,7 @@ function rollGame()
         <!-- player display side -->
         <div class="player-roll-display">
             <p class="player-name">
-                Player
+                You
             </p>
 
             <p>
@@ -72,18 +76,22 @@ function rollGame()
                 </ol>
             </div>
 
-            <form method="GET">
-                <button name="rollGame-btn">Run Game</button>
+            <form method="POST">
+                <label for="newValue">Enter new roll value, and roll from it: </label>
+                <input type="text" name="newValue">
+                <button type="submit">
+                    Custom roll
+                </button>
             </form>
-            <button>
-                <a href="rollSettings.php">Change roll?</a>
-            </button>
+            <form method="GET">
+                <button name="rollGame-btn">Roll</button>
+            </form>
             <p>
                 <?php
                 if (is_float(count($arrayOfRolls) / 2)) {
                     echo "Opponent wins...";
                 } else {
-                    echo "Player WINNS!";
+                    echo "YOU WIN!";
                 }
                 ?>
             </p>
@@ -93,7 +101,7 @@ function rollGame()
         <!-- opponent display side -->
         <div class="player-roll-display">
             <p class="player-name">
-                opponent
+                Opponent
             </p>
             <p>
                 last roll
