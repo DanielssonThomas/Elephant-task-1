@@ -12,4 +12,6 @@
 </header>
 <div class="title">
     <h1>Death Roll</h1>
+    <p>Date: <?= date('D-d-M-Y') ?></p>
+
 </div>

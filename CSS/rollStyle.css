@@ -20,21 +20,29 @@
 
 .main-roll-display {
   flex-direction: column;
-  text-align: center;
   height: 60vh;
   border: 2px black solid;
-  align-items: center;
   box-shadow: 0 10px 10px 0 black;
 }
 
 .main-roll-display-top {
+  display: flex;
+  flex-wrap: wrap;
+  width: 25rem;
   height: 30vh;
+}
+
+.main-roll-display-top div {
+  width: 4rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 .player-roll-display {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
   height: 60vh;
   box-shadow: 0 10px 10px 0 black;
 }

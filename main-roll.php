@@ -72,13 +72,12 @@ function rollGame()
         <!-- main center roll side -->
         <div class="main-roll-display">
             <div class="main-roll-display-top">
-                <ol>
-                    <?php foreach ($arrayOfRolls as $rolls) : ?>
-                        <li>
-                            <?= $rolls ?>
-                        </li>
-                    <?php endforeach ?>
-                </ol>
+                <?php foreach ($arrayOfRolls as $rolls) : ?>
+                    <div>
+                        <p><?= $rolls ?></p>
+                    </div>
+                <?php endforeach ?>
+
             </div>
 
             <form method="POST">
