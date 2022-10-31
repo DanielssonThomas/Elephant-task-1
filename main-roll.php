@@ -65,7 +65,7 @@ if (isset($_GET['rollGame-btn'])) {
                 <p><?= $error ?></p>
                 <label for="newValue">Enter new roll value, and roll from it: </label>
                 <input type="text" name="newValue">
-                <button type="submit">
+                <button>
                     Custom roll
                 </button>
             </form>

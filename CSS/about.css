@@ -1,3 +1,12 @@
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 main {
   width: 100%;
   display: flex;
@@ -32,4 +41,12 @@ section {
 
 .bored-game-input {
   width: 2.5rem;
+}
+
+.animated-cube {
+  animation: rotating 3s cubic-bezier(0.4, 0.34, 0.98, 1.02) infinite;
+}
+
+.cube-char {
+  font-size: 4rem;
 }

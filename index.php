@@ -13,7 +13,7 @@ $_SESSION['rollValue'] = 1000000;
     <link rel="stylesheet" href="./CSS/rollStyle.css">
     <link rel="stylesheet" href="./CSS/typography.css">
     <link rel="stylesheet" href="./CSS/style.css">
-    <title>Document</title>
+    <title>Death Roll</title>
 </head>
 
 <body>
