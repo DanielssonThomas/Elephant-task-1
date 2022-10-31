@@ -1,6 +1,5 @@
 <?php
-session_start();
-$_SESSION['rollValue'] = 1000000;
+
 ?>
 
 <!DOCTYPE html>

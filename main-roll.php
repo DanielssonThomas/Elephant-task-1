@@ -20,7 +20,7 @@ $playerRolls = array();
 $opponentRolls = array();
 
 // kör roll funktionen när knappen blir klickad
-if (isset($_GET['rollGame-btn'])) {
+if (isset($_POST['rollGame-btn'])) {
     rollGame();
 }
 
@@ -62,14 +62,14 @@ if (isset($_GET['rollGame-btn'])) {
             </div>
 
             <form method="POST">
-                <p><?= $error ?></p>
+                <p class="error-p"><?= $error ?></p>
                 <label for="newValue">Enter new roll value, and roll from it: </label>
                 <input type="text" name="newValue">
-                <button>
+                <button type="submit" name="rollGame-btn">
                     Custom roll
                 </button>
             </form>
-            <form method="GET">
+            <form method="POST">
                 <button name="rollGame-btn">Roll</button>
             </form>
             <p>

@@ -15,17 +15,20 @@ if (isset($_POST['cubeAmount'], $_POST['cubeHeight'], $_POST['cubeWidth'], $_POS
     //Testing if either the amount, width or height is below 0. In that case there will be an error message displayed
     $error = $_POST['cubeAmount'] < 0 || $_POST['cubeWidth'] < 0 || $_POST['cubeHeight'] < 0 ? "The number must be positive!" : "";
 
-    //Testing to se if the user has said 'yes' or 'no' to making the cubes spin
+    //Testing to see if the user has said 'yes' or 'no' to making the cubes spin
     $isSpinning = $_POST['isSpinning'] == 'true' ? true : false;
 
-    //Entering all the values from the form to the variables
-    $cubeAmount = $_POST['cubeAmount'];
-    $cubeHeight = $_POST['cubeHeight'];
-    $cubeWidth = $_POST['cubeWidth'];
-    $cubeChar = $_POST['cubeChar'];
+    //If the '$error' contains anything, one of the above 'if' statements will add contents to it. Thus the following shouldn't be added.
+    if (empty($error)) {
+        //Entering all the values from the form to the variables
+        $cubeAmount = $_POST['cubeAmount'];
+        $cubeHeight = $_POST['cubeHeight'];
+        $cubeWidth = $_POST['cubeWidth'];
+        $cubeChar = $_POST['cubeChar'];
 
-    //Creating the cube array from the functions folder, shaping ONE cube
-    $cubeArrays = cubeCreate($cubeHeight, $cubeWidth, $cubeChar);
+        //Creating the cube array from the functions folder, shaping ONE cube
+        $cubeArrays = cubeCreate($cubeHeight, $cubeWidth, $cubeChar);
+    }
 }
 ?>
 
@@ -73,7 +76,7 @@ if (isset($_POST['cubeAmount'], $_POST['cubeHeight'], $_POST['cubeWidth'], $_POS
                     <!-- start of cube form -->
                     <form method="POST">
                         <!-- this is where the error will be displayed if the user tries something suspicious in the cube generator -->
-                        <p><?= $error ?></p>
+                        <p class="error-p"><?= $error ?></p>
 
                         <!-- First the amount of cubes that will be generated is entered. All inputs have required as the function wont work without them-->
                         <label for="cubeAmount">Amount of cubes:</label>
