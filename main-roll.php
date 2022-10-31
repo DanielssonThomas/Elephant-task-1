@@ -1,13 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
+require __DIR__ . '/functions.php';
+
 $error = "";
 
 $rollValue = 1000000;
 if (isset($_POST['newValue'])) {
-    if (!filter_var($_POST['newValue'], FILTER_VALIDATE_INT)) {
+    if (!isNumber($_POST['newValue'])) {
         $error = "Thats an invalid number, try again";
     }
-    $rollValue = $_POST['newValue'];
+    $rollValue = (int)$_POST['newValue'];
 }
 
 // arrays för att spara vad som kommer ut ur rollsen
@@ -19,29 +23,6 @@ $opponentRolls = array();
 if (isset($_GET['rollGame-btn'])) {
     rollGame();
 }
-
-
-
-function rollGame()
-{
-    global $arrayOfRolls, $playerRolls, $opponentRolls, $rollValue;
-
-    $isRollerPlayer = true;
-
-    while ($rollValue != 1) {
-        $rollValue = rand(1, $rollValue);
-
-        if ($isRollerPlayer) {
-            array_push($playerRolls, $rollValue);
-            $isRollerPlayer = false;
-        } else {
-            array_push($opponentRolls, $rollValue);
-            $isRollerPlayer = true;
-        }
-        array_push($arrayOfRolls, $rollValue);
-    }
-}
-
 
 ?>
 <div class="roll-amount-header">

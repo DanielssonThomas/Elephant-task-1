@@ -5,5 +5,31 @@ main {
 }
 
 section {
-  width: 25rem;
+  width: 40rem;
+}
+
+.bored-game-container {
+  width: 100vw;
+  height: 50vh;
+}
+
+.cube-game {
+  width: 40rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.block-p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 1rem;
+}
+
+.cube-break {
+  height: 5px;
+}
+
+.bored-game-input {
+  width: 2.5rem;
 }

@@ -1,5 +1,27 @@
 <?php
+require __DIR__ . '/functions.php';
+$error = "";
 
+$cubeAmount;
+$cubeChar;
+$cubeHeight;
+$cubeWidth;
+
+$cubeArrays;
+
+if (isset($_POST['cubeAmount'], $_POST['cubeHeight'], $_POST['cubeWidth'], $_POST['cubeChar'])) {
+
+    if (!isNumber($_POST['cubeAmount']) && !isNumber($_POST['cubeHeight'] && !isNumber($_POST['cubeWidth']))) {
+        $error = "invalid input";
+    }
+
+    $cubeAmount = $_POST['cubeAmount'];
+    $cubeHeight = $_POST['cubeHeight'];
+    $cubeWidth = $_POST['cubeWidth'];
+    $cubeChar = $_POST['cubeChar'];
+
+    $cubeArrays = cubeCreate($cubeHeight, $cubeWidth, $cubeChar);
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,16 +63,41 @@
                 <h2>If you are bored of the game, try this little function</h2>
                 <div>
                     <form action="" method="POST">
+                        <p><?= $error ?></p>
+
                         <label for="cubeAmount">Amount of cubes:</label>
-                        <input type="text" name="cubeAmount" required>
+                        <input class="bored-game-input" type="number" name="cubeAmount" required>
                         <br>
-                        <label for="cubeRotateAmount">Amount of space: </label>
-                        <input type="text" name="cubeRotateAmount" required>
+
+                        <label for="cubeRotateAmount">Character for cubes: </label>
+                        <input class="bored-game-input" type="text" name="cubeChar" required>
+                        <br>
+
+                        <label for="cubeWidth">Cube width: </label>
+                        <input class="bored-game-input" type="number" name="cubeWidth" require>
+                        <br>
+
+                        <label for="cubeHeight">Cube height: </label>
+                        <input class="bored-game-input" type="number" name="cubeHeight" require>
+                        <br>
+
                         <button type="submit">Enter</button>
                     </form>
 
                     <div class="bored-game-container">
-
+                        <div class="cube-game">
+                            <?php global $cubeAmount;
+                            for ($i = 0; $i < $cubeAmount; $i++) : ?>
+                                <div>
+                                    <?php foreach ($cubeArrays as $cubeArray) : ?>
+                                        <div>
+                                            <?= $cubeArray ?>
+                                        </div>
+                                    <?php endforeach ?>
+                                    <br>
+                                </div>
+                            <?php endfor ?>
+                        </div>
                     </div>
                 </div>
             </div>
