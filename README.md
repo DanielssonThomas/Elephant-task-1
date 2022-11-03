@@ -1,4 +1,4 @@
-![gif]('https://media.tenor.com/nuctS3Cm3s4AAAAC/dice-rolling.gif')
+![This is an image](https://media.tenor.com/KzfDyYrsLngAAAAC/dice-roll.gif)
 
 # DeathRoll
 
