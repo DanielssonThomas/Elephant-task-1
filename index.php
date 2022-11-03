@@ -15,7 +15,6 @@
     <?php
     require('header.php');
     require('main-roll.php');
-    require('footer.php');
     ?>
 </body>
 
