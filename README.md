@@ -19,11 +19,16 @@ Check the project out [here](https://thomasdanielsson.coffee/DeathRoll).
 
 Code review written by [Alfred Unenge](https://github.com/username).
 
-1. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-2. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-3. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-4. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-5. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
+1. `functions.php:28` - `FILTER_VALIDATE_INT` kan ta emot min och max-värden för att hindra oönskade beteenden vid stora värden i `$_POST['newValue']`.
+
+2. `main-roll.php:14` - Verkar array_pusha strings till ints. Något kör custom roll-funktionen trots error-meddelande pga
+   string och decimaltal.
+
+3. `functions.php:26` - isNumber-funktionen skulle eventuellt kunna bytas mot inbyggda `is_numeric()` tillsammans med `floor()` eller `ceil()`-funktionerna för att avrunda decimaltal.
+
+4. `about.php:27+30` - `$cubeChar`-variabeln utgör en sårbarhet och kan behöva ett filter/sanitizer.
+
+5. `about.php:16+121+136` - Fundera på om du även vill ha ett max-värde eftersom höga värden lätt överbelastar sidan.
 
 # Testers
 
