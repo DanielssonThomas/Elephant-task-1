@@ -50,3 +50,9 @@ section {
 .cube-char {
   font-size: 4rem;
 }
+
+@media screen and (max-width: 700px) {
+  .cube-game {
+    width: 20rem;
+  }
+}
