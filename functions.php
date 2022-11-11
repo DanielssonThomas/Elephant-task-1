@@ -3,21 +3,21 @@
 declare(strict_types=1);
 
 
-function rollGame()
+function RunGame()
 {
     global $arrayOfRolls, $playerRolls, $opponentRolls, $rollValue;
 
-    $isRollerPlayer = true;
+    $rollerIsPlayer = true;
 
     while ($rollValue != 1) {
         $rollValue = rand(1, $rollValue);
 
-        if ($isRollerPlayer) {
+        if ($rollerIsPlayer) {
             array_push($playerRolls, $rollValue);
-            $isRollerPlayer = false;
+            $rollerIsPlayer = false;
         } else {
             array_push($opponentRolls, $rollValue);
-            $isRollerPlayer = true;
+            $rollerIsPlayer = true;
         }
         array_push($arrayOfRolls, $rollValue);
     }

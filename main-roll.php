@@ -21,7 +21,7 @@ $opponentRolls = array();
 
 // kör roll funktionen när knappen blir klickad
 if (isset($_POST['rollGame-btn'])) {
-    rollGame();
+    RunGame();
 }
 
 ?>
