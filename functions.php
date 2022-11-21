@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 
-function RunGame()
+function runGame()
 {
     global $gameRolls, $playerRolls, $opponentRolls, $rollValue;
 
