@@ -15,7 +15,7 @@ if (isset($_POST['newValue'])) {
 }
 
 // arrays för att spara vad som kommer ut ur rollsen
-$arrayOfRolls = array();
+$gameRolls = array();
 $playerRolls = array();
 $opponentRolls = array();
 
@@ -53,7 +53,7 @@ if (isset($_POST['rollGame-btn'])) {
         <!-- main center roll side -->
         <div class="main-roll-display">
             <div class="main-roll-display-top">
-                <?php foreach ($arrayOfRolls as $rolls) : ?>
+                <?php foreach ($gameRolls as $rolls) : ?>
                     <div>
                         <p><?= $rolls ?></p>
                     </div>
@@ -74,7 +74,7 @@ if (isset($_POST['rollGame-btn'])) {
             </form>
             <p>
                 <?php
-                if (is_float(count($arrayOfRolls) / 2)) {
+                if (is_float(count($gameRolls) / 2)) {
                     echo "Opponent wins...";
                 } else {
                     echo "YOU WIN!";

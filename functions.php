@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 function RunGame()
 {
-    global $arrayOfRolls, $playerRolls, $opponentRolls, $rollValue;
+    global $gameRolls, $playerRolls, $opponentRolls, $rollValue;
 
     $rollerIsPlayer = true;
 
@@ -19,7 +19,7 @@ function RunGame()
             array_push($opponentRolls, $rollValue);
             $rollerIsPlayer = true;
         }
-        array_push($arrayOfRolls, $rollValue);
+        array_push($gameRolls, $rollValue);
     }
 }
 
