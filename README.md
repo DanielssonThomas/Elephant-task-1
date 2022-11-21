@@ -35,4 +35,4 @@ Code review written by [Alfred Unenge](https://github.com/username).
 Tested by the following people:
 
 1. Douglas Lindahl
-2. John Doe
+2. Ruben Olander
