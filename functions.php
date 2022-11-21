@@ -7,17 +7,17 @@ function RunGame()
 {
     global $gameRolls, $playerRolls, $opponentRolls, $rollValue;
 
-    $rollerIsPlayer = true;
+    $isUsersTurn = true;
 
     while ($rollValue != 1) {
         $rollValue = rand(1, $rollValue);
 
-        if ($rollerIsPlayer) {
+        if ($isUsersTurn) {
             array_push($playerRolls, $rollValue);
-            $rollerIsPlayer = false;
+            $isUsersTurn = false;
         } else {
             array_push($opponentRolls, $rollValue);
-            $rollerIsPlayer = true;
+            $isUsersTurn = true;
         }
         array_push($gameRolls, $rollValue);
     }
